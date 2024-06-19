@@ -29,4 +29,19 @@ pipeline {
             }
          }
       }
+       stage('Code Coverage') {
+
+            steps {
+
+                sh 'coverage run -m pytest'
+
+                sh 'coverage report'
+
+                sh 'coverage xml -o coverage.xml'
+
+                publishCoverage adapters: [cobertura('coverage.xml')]
+
+            }
+
+        }
 }
