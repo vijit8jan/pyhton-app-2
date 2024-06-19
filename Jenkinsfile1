@@ -19,8 +19,8 @@ pipeline {
         }
         stage('Build'){
             steps{
-                sh 'rm -rf python-app-2'
-                sh 'cd python-app-2'
+                sh 'rm -rf pyhton-app-2'
+                sh 'cd pyhton-app-2'
                 sh  'python3 src/main/python/hello.py'
             }
          }
