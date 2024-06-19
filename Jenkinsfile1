@@ -14,13 +14,11 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout code from Git repository
-                sh 'rm -rf pyhton-app-2'
                 git branch: 'main', url: 'https://github.com/vijit8jan/pyhton-app-2.git'
             }
         }
         stage('Build'){
             steps{
-                sh 'cd pyhton-app-2'
                 sh  'python3 src/main/python/hello.py'
             }
          }
