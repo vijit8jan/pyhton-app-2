@@ -1,1 +1,27 @@
+pipeline {
+    agent any
 
+    environment {
+        GIT_REPO_URL = 'https://github.com/vijit8jan/pyhton-app-2.git'
+        #GIT_CREDENTIALS_ID = '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'
+        #SONARQUBE_SCANNER_HOME = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+        #SONARQUBE_SERVER = 'your-sonarqube-server-id'
+        #DOCKER_IMAGE_NAME = 'your-docker-image-name'
+        #DOCKER_CREDENTIALS_ID = 'your-docker-credentials-id'
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                // Checkout code from Git repository
+                git branch: 'main', url: 'https://github.com/vijit8jan/pyhton-app-2.git'
+            }
+        }
+        stage('Build'){
+            steps{
+                sh 'rm -rf python-app-2'
+                sh 'cd python-app-2'
+                sh  'python3 src/main/python/hello.py'
+            }
+         }
+      }
