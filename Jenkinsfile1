@@ -23,10 +23,10 @@ pipeline {
                 sh  'python3 src/main/python/hello.py'
             }
          }
-      }
       stage('Test'){
             steps{
                 sh  'python3 -m pytest'
             }
          }
       }
+}
