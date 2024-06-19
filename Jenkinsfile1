@@ -28,20 +28,12 @@ pipeline {
                 sh  'python3 -m pytest'
             }
          }
-      }
        stage('Code Coverage') {
-
-            steps {
-
+           steps {
                 sh 'coverage run -m pytest'
-
                 sh 'coverage report'
-
                 sh 'coverage xml -o coverage.xml'
-
                 publishCoverage adapters: [cobertura('coverage.xml')]
-
+                }
+              }
             }
-
-        }
-}
